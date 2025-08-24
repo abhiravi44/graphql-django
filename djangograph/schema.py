@@ -32,7 +32,7 @@ class ContactMutation(graphene.Mutation):
         id = graphene.ID()  # new
         name = graphene.String()
         phone_number = graphene.String()
-    contact = graphene.Field(ContactType)  # define the class we are getting the fields from
+        contact = graphene.Field(ContactType)  # define the class we are getting the fields from
 
     @classmethod
     def mutate(cls, root, info, name, phone_number, id):
@@ -63,8 +63,8 @@ class ContactDelete(graphene.Mutation):
 
 class Mutation(graphene.ObjectType):
     # keywords that will be used to do the mutation in the frontend
-    create_contact = ContactMutation.Field()
-    update_contact = ContactMutation.Field()
+    create_contact = ContactType
+    update_contact = ContactType
     delete_contact = ContactDelete.Field()  # new
 
 
